@@ -1,0 +1,13 @@
+[project]
+name = "ai-agent"
+version = "0.1.0"
+description = "AI agent with persona, memory, tools, and LLM model integration"
+readme = "README.md"
+requires-python = ">=3.13"
+
+dependencies = [
+    "langchain[openai]",
+    "langgraph",
+    "asyncio",
+    "python-dotenv",
+]
