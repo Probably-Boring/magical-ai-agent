@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime
 from dotenv import load_dotenv
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
@@ -24,10 +25,19 @@ def get_harrypotter_books():
         ("Deathly Hallows", 2007)
     ]
 
+def calculate_hogwarts_age():
+    """Calculate the current age of Hogwarts School of Witchcraft and Wizardry."""
+    founding_year = 990
+    current_year = datetime.now().year
+    age = current_year - founding_year
+    print(f"[Hogwarts Age tool called] Hogwarts is {age} years old.")
+    return f"Hogwarts is approximately {age} years old."
+
+
 async def main():
-    # AI Particals
+    # AI Particles
     model = init_chat_model(model="gpt-4.1", model_provider="openai")
-    tools = [subtract_numbers, get_harrypotter_books]
+    tools = [subtract_numbers, get_harrypotter_books, calculate_hogwarts_age]
     persona = (
             "You're a witty and sharp assistant who loves two things: Harry Potter trivia and solving math problems. "
             "You're confident, quick with facts, and always keep your answers concise. "
@@ -59,7 +69,11 @@ async def main():
     print(f"A: {ask('How many years did it take to release all Harry Potter books?')}\n")
     
     print("Q: What was my first question?")
-    print(f"A: {ask('What was my first question about?')}")
+    print(f"A: {ask('What was my first question about?\n')}")
+
+    print("Q: How old is Hogwarts?")
+    print(f"A: {ask('How old is Hogwarts?')}\n")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
