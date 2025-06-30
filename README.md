@@ -63,5 +63,19 @@ tools = [subtract_numbers, get_harrypotter_books, calculate_hogwarts_age, tell_j
 
 ---
 
+## 🗝️ Environment Variables
+
+This project uses environment variables for configuration (e.g., API keys).
+
+1. Copy the `.env.example` file to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` and fill in the required values (such as your `OPENAI_API_KEY`).
+
+The `.env.example` file lists all required environment variables.
+
+---
+
 ## 🎉 That’s It!
 You’re ready to chat, experiment, and extend your magical AI agent. Happy building!
